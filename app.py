@@ -1,11 +1,12 @@
 import os
-from flask import Flask, jsonify, request
+from flask import Flask
+from flask_restx import Api
+from api.v1 import v1
+
 app = Flask(__name__)
-build = os.environ['FLASK_ENV']
+api = Api(app)
 
+api.add_namespace(v1, path='/api/v1')
 
-@app.route("/")
-def index():
-    return jsonify({"name": "python-simpleapi", "version": "1.0", "env": build})
-
-
+if __name__ == '__main__':
+ app.run(Debug=True)
