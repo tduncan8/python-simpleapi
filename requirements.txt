@@ -2,3 +2,4 @@ sqlalchemy
 alembic
 flask
 flask-restx
+marsmallow

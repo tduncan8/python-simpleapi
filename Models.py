@@ -27,3 +27,7 @@ class Students(Base):
             "last_name": self.last_name,
             "email": self.email,
         }
+    @classmethod
+    def by_id(cls, student_id):
+        return session.query(cls).filter_by(id=student_id).first()
+
